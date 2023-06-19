@@ -7,16 +7,18 @@ The Following SoCs are using the Mali-450 IP :
 
 This distribution adds platform support for these families.
 
+Kernel v6 support
+
 HowTo
 =====
 
 Apply the linux patches to upstream linux source and build.
 
 ```
-$ KDIR=/path/to/amlogic/upstream/linux ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- ./build.sh
+$ KDIR=/usr/src/linux-aarch64 ARCH=arm64 ./build.sh
 ```
 
-Copy mali.ko to root filesystem and boot.
+insmod mali
 
 Sources
 =======

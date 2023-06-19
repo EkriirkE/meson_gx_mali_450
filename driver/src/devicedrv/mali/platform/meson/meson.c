@@ -78,6 +78,7 @@ struct clk *clk_core;
 static const struct of_device_id meson_mali_matches[] = {
 	{ .compatible = "amlogic,meson-gxbb-mali" },
 	{ .compatible = "amlogic,meson-gxl-mali" },
+	{ .compatible = "panfrost" },
 	{},
 };
 MODULE_DEVICE_TABLE(of, meson_mali_matches);
@@ -245,7 +246,7 @@ int mali_platform_device_register(void)
 		goto err_free_resources;
 	}
 
-	of_dma_configure(&dev->dev, np);
+	of_dma_configure(&dev->dev, np, false);
 
 	of_clk_set_defaults(np, false);
 

@@ -170,6 +170,7 @@ static struct miscdevice mali_miscdevice = { 0, };
 static int mali_miscdevice_register(struct platform_device *pdev);
 static void mali_miscdevice_unregister(void);
 
+#define HAVE_UNLOCKED_IOCTL
 static int mali_open(struct inode *inode, struct file *filp);
 static int mali_release(struct inode *inode, struct file *filp);
 #ifdef HAVE_UNLOCKED_IOCTL
@@ -1129,6 +1130,7 @@ static int mali_ioctl(struct inode *inode, struct file *filp, unsigned int cmd, 
 module_init(mali_module_init);
 module_exit(mali_module_exit);
 
+MODULE_IMPORT_NS(DMA_BUF);
 MODULE_LICENSE(MALI_KERNEL_LINUX_LICENSE);
 MODULE_AUTHOR("ARM Ltd.");
 MODULE_VERSION(SVN_REV_STRING);
